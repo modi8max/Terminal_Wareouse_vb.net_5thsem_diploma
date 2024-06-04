@@ -1,0 +1,13 @@
+Inward 
+item master- name ,cat ,no,uom
+stock master-cat,ter,dept ,itemname,ino,uom ,qty
+inward-supplier ,cat,ter,dept ,itemname ,qty,bill no,bill date,inward no,invoice date,uom,total
+  or 
+item master- name ,cat ,no,uom,ter,dept ,qty
+inward-supplier ,cat,ter,dept ,item name ,qty,bill no,bill date,inward no,invoice date,uom,total
+
+
+stock table 
+only 1 table
+
+  

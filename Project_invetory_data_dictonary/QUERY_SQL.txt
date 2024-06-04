@@ -1,0 +1,108 @@
+CREATE TABLE [dbo].[Category_master] (
+    [Id]    INT          IDENTITY (1, 1) NOT NULL,
+    [cname] VARCHAR (50) NOT NULL
+);
+
+
+
+
+CREATE TABLE [dbo].[Department_master] (
+    [Id]    INT          IDENTITY (1, 1) NOT NULL,
+    [dname] VARCHAR (50) NOT NULL,
+    [tname] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+
+CREATE TABLE [dbo].[Inward] (
+    [Id]        INT           IDENTITY (1, 1) NOT NULL,
+    [sname]     VARCHAR (50)  NOT NULL,
+    [sadd]      VARCHAR (200) NOT NULL,
+    [idate]     DATE          NOT NULL,
+    [ino]       INT           NOT NULL,
+    [bill_no]   INT           NOT NULL,
+    [bill_date] DATE          NOT NULL,
+    [tname]     VARCHAR (50)  NOT NULL,
+    [category]  VARCHAR (50)  NOT NULL,
+    [iname]     VARCHAR (50)  NOT NULL,
+    [uom]       VARCHAR (50)  NOT NULL,
+    [qty]       INT           NOT NULL,
+    [rate]      INT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[Item_master] (
+    [Id]       INT          IDENTITY (1, 1) NOT NULL,
+    [iname]    VARCHAR (50) NOT NULL,
+    [uom]      VARCHAR (50) NOT NULL,
+    [category] VARCHAR (50) NOT NULL,
+    [qty]      INT          NOT NULL
+);
+
+
+
+
+
+CREATE TABLE [dbo].[Login_master] (
+    [Id]         INT          IDENTITY (1, 1) NOT NULL,
+    [uname]      VARCHAR (50) NOT NULL,
+    [password]   VARCHAR (10) NOT NULL,
+    [terminal]   VARCHAR (50) NOT NULL,
+    [department] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[Outward] (
+    [Id]         INT          IDENTITY (1, 1) NOT NULL,
+    [issue_no]   INT          NOT NULL,
+    [issue_date] DATE         NOT NULL,
+    [department] VARCHAR (50) NOT NULL,
+    [iname]      VARCHAR (50) NOT NULL,
+    [qty]        INT          NOT NULL,
+    [terminal]   VARCHAR (50) NOT NULL,
+    [rec_byt]     VARCHAR (50) NOT NULL,
+    [rec_byd]     VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[Supplier_master] (
+    [Id]     INT           IDENTITY (1, 1) NOT NULL,
+    [sname]  VARCHAR (50)  NOT NULL,
+    [sadd]   VARCHAR (200) NOT NULL,
+    [city]   VARCHAR (50)  NOT NULL,
+    [s_phn]  VARCHAR (10)  NOT NULL,
+    [email]  VARCHAR (50)  NOT NULL,
+    [gst_no] VARCHAR (50)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[Terminal_master] (
+    [Id]    INT          IDENTITY (1, 1) NOT NULL,
+    [tid]   VARCHAR (50) NOT NULL,
+    [tname] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].[stock_Master] (
+    [Id]       INT          IDENTITY (1, 1) NOT NULL,
+    [category] VARCHAR (50) NOT NULL,
+    [tname]    VARCHAR (50) NOT NULL,
+    [dname]    VARCHAR (50) NOT NULL,
+    [iname]    VARCHAR (50) NOT NULL,
+    [ino]      VARCHAR (50) NOT NULL,
+    [uom]      VARCHAR (50) NOT NULL,
+    [qty]      INT          NOT NULL
+);
+
+

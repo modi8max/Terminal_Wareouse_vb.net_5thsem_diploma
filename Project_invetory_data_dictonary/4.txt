@@ -1,0 +1,17 @@
+Try
+            If ToolStripButton4.Text <> "" Then
+
+                Dim d As New Daoclass
+                Dim ds As New DataSet
+                ds = d.loaddataset("select * from Item_master where " & "Id =" & Iname.SelectedValue)
+                If ds.Tables(0).Rows.Count > 0 Then
+                    Uom.Text = ds.Tables(0).Rows(0).Item("uom")
+                    Qty.Text = ds.Tables(0).Rows(0).Item("qty")
+                Else
+                    Cat.Focus()
+                End If
+            End If
+
+        Catch ex As Exception
+
+        End Try

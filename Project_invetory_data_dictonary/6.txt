@@ -1,0 +1,40 @@
+Public Class reports
+    Private Sub ComboBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles DateTimePicker2.KeyPress, DateTimePicker1.KeyPress, ComboBox1.KeyPress
+        If e.KeyChar.GetHashCode = 851981 Then
+            If sender.name = ComboBox1.Name Then
+                DateTimePicker1.Focus()
+            ElseIf sender.name = DateTimePicker1.Name
+                DateTimePicker2.Focus()
+            ElseIf sender.name = DateTimePicker2.Name
+                Button1.Focus()
+            ElseIf sender.name = Button1.Name
+                Button2.Focus()
+            End If
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If ComboBox1.Text <> "" Then
+            Dim d As New DABO
+            Dim ds As New DataSet
+            ds = d.load_dataset("select * from sales_detail where cos_name='" & ComboBox1.Text & "' and (rec_date between '" & DateTimePicker1.Value.ToString("yyyy-MM-dd") & "' and '" & DateTimePicker2.Value.ToString("yyyy-MM-dd") & "')")
+            DataGridView2.DataSource = ds.Tables(0)
+        Else
+            MessageBox.Show("enter valid customer name")
+            ComboBox1.Focus()
+        End If
+    End Sub
+
+    Private Sub sales_summ_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim d As New DABO
+        Dim ds As New DataSet
+        ds = d.load_dataset("select distinct (cos_name) from sales_detail")
+        ComboBox1.DataSource = ds.Tables(0)
+        ComboBox1.DisplayMember = "cos_name"
+        ComboBox1.ValueMember = "cos_name"
+    End Sub
+
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+
+    End Sub
+End Class

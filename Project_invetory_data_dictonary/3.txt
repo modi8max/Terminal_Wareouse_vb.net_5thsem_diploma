@@ -1,0 +1,33 @@
+     da.adddata("update Inward set sname ='" & Sname.Text & "',rate ='" & Rate.Text & "'where Id= " & TextBox1.Text)
+                    
+
+Try
+            Dim oqty As Double = 0
+            Dim nqty As Double = 0
+            Dim ds As New DataSet
+            ds = loaddataset("select qty from stock_master where Id = " & id)
+            If ds.Tables(0).Rows.Count > 0 Then
+                oqty = Val(ds.Tables(0).Rows(0).Item(0))
+            End If
+            If f Then
+                nqty = oqty + qty
+            Else
+                nqty = oqty - qty
+            End If
+            adddata("update stock_master set qty =" & nqty & "where Id =" & id)
+        Catch ex As Exception
+
+        End Try
+
+     ds = d.loaddataset("select qty from stock_master where iname ='" & Iname.Text & "',tname ='" & Ter1.Text & "',dname ='" & dept.Text & "'")
+                   
+"select qty from stock_Master where iname = 'Nuts' ,tname ='terminal',dname = 'dep1'"
+
+   ds = d.loaddataset("select iname,Id from Item_master where category='" & Cat.Text & "' ")
+                          
+"update stock_master set qty =-2 where id ="       
+
+"update Inward set sname ='mrmodi',sadd ='six-53" & vbCrLf & "',idate ='03 August 2021',ino ='123456',bill_no ='123457',bill_date ='03 August 2021',tname ='terminal',dname ='d1',category ='cat1',iname ='Nuts',uom ='kg',qty ='5',rate ='500'where Id= 1"  
+
+ ds = d.loaddataset("select qty from stock_master where tname = '" & Ter1.Text & "',dname = '" & dept.Text & "',iname = '" & Iname.Text & "',category = '" & Cat.Text & "'")
+    

@@ -1,0 +1,7 @@
+reports---->
+1.item wise report
+2.department wise
+3.terminal wise
+
+"select qty from stock_master where iname = 'Nuts' ,tname ='terminal',dname = 'dep1'"
+"select qty from stock_master where iname = Nuts tname = terminaldname = d1  "
